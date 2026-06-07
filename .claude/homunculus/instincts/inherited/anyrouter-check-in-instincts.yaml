@@ -1,0 +1,557 @@
+# Instincts generated from https://github.com/dyzmj/anyrouter-check-in
+# Generated: 2026-06-07T17:56:40.721Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: anyrouter-check-in-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, chore, refactor, perf
+
+## Evidence
+
+- 29 commits analyzed
+- Detected conventional commit pattern
+- Examples: feat: migrate to Linux + CloakBrowser, add email/password login, fix: make api_user optional for email/password login
+
+---
+id: anyrouter-check-in-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Commit Length
+
+## Action
+
+Write moderate-length commit messages (~59 characters)
+
+## Evidence
+
+- Average commit message length: 59 chars
+- Based on 29 commits
+
+---
+id: anyrouter-check-in-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: anyrouter-check-in-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: anyrouter-check-in-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: anyrouter-check-in-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: anyrouter-check-in-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: 
+
+---
+id: anyrouter-check-in-workflow-add-or-enhance-login-method
+trigger: "when doing add or enhance login method"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Workflow Add Or Enhance Login Method
+
+## Action
+
+Follow the add-or-enhance-login-method workflow:
+1. Update checkin.py to implement or modify login logic.
+2. Modify utils/browser.py and/or utils/popups.py to handle new login UI flows, selectors, or modal dialogs.
+3. Adjust utils/config.py if new config options are needed (e.g., toggling login methods, proxy usage).
+4. Update .env.example to document new config variables.
+5. Edit .github/workflows/checkin.yml if CI needs to support the new login method (e.g., secrets, environment variables, debug artifacts).
+6. Update README.md or documentation if user-facing changes are made.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: checkin.py, utils/browser.py, utils/popups.py
+
+---
+id: anyrouter-check-in-workflow-ci-workflow-improvement-or-debug-artifact
+trigger: "when doing ci workflow improvement or debug artifact"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Workflow Ci Workflow Improvement Or Debug Artifact
+
+## Action
+
+Follow the ci-workflow-improvement-or-debug-artifact workflow:
+1. Edit .github/workflows/checkin.yml to change steps, add artifact upload, or tweak environment variables.
+2. Update .gitignore if new artifact directories are created.
+3. Modify checkin.py and/or utils/browser.py to generate and save debug artifacts (e.g., screenshots) or enable verbose logging.
+4. Add or update scripts (e.g., setup_mihomo_proxy.sh) if new setup steps are required for CI.
+5. Optionally update .env.example and README.md to document new debug or CI options.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: .github/workflows/checkin.yml, .gitignore, checkin.py
+
+---
+id: anyrouter-check-in-workflow-proxy-support-or-enhancement
+trigger: "when doing proxy support or enhancement"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Workflow Proxy Support Or Enhancement
+
+## Action
+
+Follow the proxy-support-or-enhancement workflow:
+1. Update utils/proxy.py and/or scripts/setup_mihomo_proxy.sh to implement or improve proxy logic.
+2. Modify checkin.py and utils/browser.py to use proxy settings as needed.
+3. Edit .env.example to document new proxy-related environment variables.
+4. Update .github/workflows/checkin.yml to set up proxy in CI.
+5. Update README.md to document proxy usage.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: utils/proxy.py, scripts/setup_mihomo_proxy.sh, checkin.py
+
+---
+id: anyrouter-check-in-workflow-modularize-or-refactor-browser-utilities
+trigger: "when doing modularize or refactor browser utilities"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Workflow Modularize Or Refactor Browser Utilities
+
+## Action
+
+Follow the modularize-or-refactor-browser-utilities workflow:
+1. Move or refactor code in checkin.py into utils/browser.py and/or utils/popups.py.
+2. Update imports and logic in checkin.py to use new utility functions.
+3. Optionally update utils/config.py if configuration is affected.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: checkin.py, utils/browser.py, utils/popups.py
+
+---
+id: anyrouter-check-in-workflow-documentation-update-for-new-feature-or-config
+trigger: "when doing documentation update for new feature or config"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Workflow Documentation Update For New Feature Or Config
+
+## Action
+
+Follow the documentation-update-for-new-feature-or-config workflow:
+1. Edit README.md to describe the new feature or config.
+2. Update .env.example to show new environment variables.
+3. Optionally update CONTRIBUTING.md if contribution workflow changes.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: README.md, .env.example, CONTRIBUTING.md
+
+---
+id: anyrouter-check-in-camelCase-functions
+trigger: "When creating or renaming a function in Python code"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In CamelCase Functions
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+- Consistent usage in utils/browser.py
+
+---
+id: anyrouter-check-in-pascalcase-classes
+trigger: "When defining a class in Python code"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Pascalcase Classes
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+- Consistent usage in utils/browser.py
+
+---
+id: anyrouter-check-in-screaming-snake-constants
+trigger: "When defining a constant in Python code"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Screaming Snake Constants
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: anyrouter-check-in-camelcase-files
+trigger: "When naming a new file or renaming an existing file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Camelcase Files
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+- Examples: checkin.py, utils/browser.py
+
+---
+id: anyrouter-check-in-relative-imports
+trigger: "When importing modules within the package"
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Relative Imports
+
+## Action
+
+Use relative imports
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+- Seen in utils/browser.py
+
+---
+id: anyrouter-check-in-named-exports
+trigger: "When exporting functions or classes from a module"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Named Exports
+
+## Action
+
+Use named exports (explicitly specify what is exported)
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: anyrouter-check-in-test-in-separate-folder
+trigger: "When adding or updating tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Test In Separate Folder
+
+## Action
+
+Place test files in the tests/ directory, separate from src code
+
+## Evidence
+
+- Pattern in architecture.folderStructure.testLocation
+- Presence of tests/ folder
+
+---
+id: anyrouter-check-in-conventional-commits
+trigger: "When writing a commit message"
+confidence: 0.95
+domain: git
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Conventional Commits
+
+## Action
+
+Use conventional commit prefixes: feat, fix, chore, refactor, perf, docs
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Seen in: 'feat: migrate to Linux + CloakBrowser, add email/password login'
+- Seen in: 'fix: make api_user optional for email/password login'
+
+---
+id: anyrouter-check-in-commit-length
+trigger: "When composing a commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Commit Length
+
+## Action
+
+Keep commit subject lines concise, around 59 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+- Examples in commits.examples
+
+---
+id: anyrouter-check-in-add-or-enhance-login-method
+trigger: "When someone wants to support a new login method or improve existing authentication flows"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Add Or Enhance Login Method
+
+## Action
+
+Update checkin.py, utils/browser.py, utils/popups.py, utils/config.py, .env.example, .github/workflows/checkin.yml, and README.md as needed to implement or document the new login method
+
+## Evidence
+
+- Workflow: add-or-enhance-login-method
+- Commit sequence and files in workflow example
+
+---
+id: anyrouter-check-in-ci-workflow-improvement-or-debug-artifact
+trigger: "When someone wants to make CI more robust, enable debugging, or add artifact uploads"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Ci Workflow Improvement Or Debug Artifact
+
+## Action
+
+Edit .github/workflows/checkin.yml, .gitignore, checkin.py, utils/browser.py, scripts/setup_mihomo_proxy.sh, .env.example, and README.md to improve CI or add debug artifact support
+
+## Evidence
+
+- Workflow: ci-workflow-improvement-or-debug-artifact
+- Commit sequence and files in workflow example
+
+---
+id: anyrouter-check-in-proxy-support-or-enhancement
+trigger: "When someone wants to route browser/API traffic through a proxy or enhance proxy setup for CI"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Proxy Support Or Enhancement
+
+## Action
+
+Update utils/proxy.py, scripts/setup_mihomo_proxy.sh, checkin.py, utils/browser.py, .env.example, .github/workflows/checkin.yml, and README.md to implement or improve proxy support
+
+## Evidence
+
+- Workflow: proxy-support-or-enhancement
+- Commit sequence and files in workflow example
+
+---
+id: anyrouter-check-in-modularize-or-refactor-browser-utilities
+trigger: "When someone wants to clean up, modularize, or extend browser-related code"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Modularize Or Refactor Browser Utilities
+
+## Action
+
+Move or refactor code in checkin.py into utils/browser.py and/or utils/popups.py, update imports, and adjust utils/config.py if needed
+
+## Evidence
+
+- Workflow: modularize-or-refactor-browser-utilities
+- Commit sequence and files in workflow example
+
+---
+id: anyrouter-check-in-documentation-update-for-new-feature-or-config
+trigger: "When someone adds a new feature or config option that users need to know about"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: dyzmj/anyrouter-check-in
+---
+
+# Anyrouter Check In Documentation Update For New Feature Or Config
+
+## Action
+
+Edit README.md, .env.example, and optionally CONTRIBUTING.md to document new features or configuration
+
+## Evidence
+
+- Workflow: documentation-update-for-new-feature-or-config
+- Commit sequence and files in workflow example
+
